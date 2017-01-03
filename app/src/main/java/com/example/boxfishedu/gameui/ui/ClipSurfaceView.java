@@ -52,14 +52,14 @@ public class ClipSurfaceView extends SurfaceView implements SurfaceHolder.Callba
         bm= BitmapFactory.decodeResource(activity.getResources(), R.drawable.tubiao);
     }
 
-    @Override
-    public void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-//    public void draw(Canvas canvas) {
-//        super.draw(canvas);
-//        canvas.drawARGB(0, 0, 0, 0);
+//    @Override
+//    public void onDraw(Canvas canvas) {
+//        super.onDraw(canvas);
+    public void draw(Canvas canvas) {
+        super.draw(canvas);
+        canvas.drawARGB(0, 0, 0, 0);
 //        canvas.drawARGB(128, 128, 128, 128);
-        canvas.drawARGB(255, 128, 255, 0);
+//        canvas.drawARGB(255, 128, 255, 0);
         canvas.save();
         canvas.clipRect(30, 20,280, 250);//裁剪一个矩形
         canvas.drawColor(Color.WHITE);//画布设置为白色
@@ -106,8 +106,8 @@ public class ClipSurfaceView extends SurfaceView implements SurfaceHolder.Callba
         Canvas canvas = surfaceHolder.lockCanvas();
         try {
             synchronized (surfaceHolder) {
-//                draw(canvas);
-                onDraw(canvas);
+                draw(canvas);
+//                onDraw(canvas);
             }
         } catch (Exception e) {
             e.printStackTrace();
