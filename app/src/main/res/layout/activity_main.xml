@@ -11,8 +11,14 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.boxfishedu.gameui.MainActivity">
 
-    <com.example.boxfishedu.gameui.ui.BitmapView
+    <!--<com.example.boxfishedu.gameui.ui.BitmapView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:id="@+id/bitmap"/>-->
+
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/bitmap"/>
+        android:id="@+id/myImage"
+        android:src="@drawable/img"/>
 </LinearLayout>
