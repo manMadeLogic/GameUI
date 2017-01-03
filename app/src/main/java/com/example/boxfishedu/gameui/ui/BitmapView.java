@@ -20,7 +20,7 @@ import com.example.boxfishedu.gameui.R;
 // | CopyRight:  http://www.boxfish.cn
 // +----------------------------------------------------------------------
 public class BitmapView extends View {
-    Bitmap myBitMap;
+    Bitmap myBitmap;
     Paint paint;
 
     public BitmapView(Context context, AttributeSet attrs) {
@@ -30,7 +30,7 @@ public class BitmapView extends View {
 
     private void initBitmap() {
         paint = new Paint();
-        myBitMap = BitmapFactory.decodeResource(getResources(), R.drawable.img);
+        myBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.img);
     }
 
     @Override
@@ -39,7 +39,7 @@ public class BitmapView extends View {
         paint.setAntiAlias(true);
         paint.setColor(Color.WHITE);
         paint.setTextSize(15);
-        canvas.drawBitmap(myBitMap, 10, 10, paint);
+        canvas.drawBitmap(myBitmap, 10, 10, paint);
         canvas.save();
         Matrix m1 = new Matrix();
         Matrix m2 = new Matrix();
@@ -49,8 +49,20 @@ public class BitmapView extends View {
         m3.setConcat(m1, m2);
         m1.setScale(0.8f, 0.8f);
         m2.setConcat(m1, m3);
-        canvas.drawBitmap(myBitMap, m2, paint);
+        canvas.drawBitmap(myBitmap, m2, paint);
         canvas.restore();
-//        canvas.save();
+        canvas.save();
+        paint.setAlpha(180);
+        m1.setTranslate(200,100);
+        m2.setScale(1.3f, 1.3f);
+        m3.setConcat(m1, m2);
+        canvas.drawBitmap(myBitmap, m3,  paint);
+        paint.reset();
+        canvas.restore();
+        paint.setTextSize(40);
+        paint.setColor(0xffFFFFFF);
+        canvas.drawText("图片的宽度: "+myBitmap.getWidth(), 20, 380, paint);//绘制字符串，图片的宽度
+        canvas.drawText("图片的高度: "+myBitmap.getHeight(), 20, 430, paint);//绘制字符串，图片的高度
+        paint.reset();
     }
 }
